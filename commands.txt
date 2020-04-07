@@ -1,0 +1,13 @@
+
+
+protoc -I="." PostService.proto --js_out=import_style=commonjs,binary:.
+
+protoc -I="." PostService.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+
+//Run from the root of the folder
+docker build -t helloworld/envoy -f ./src/envoy.Dockerfile ./src
+docker run -d -p 8080:8080 -p 9901:9901 helloworld/envoy  
+
+
+// remove containers not active
+docker rm $(docker ps -a -q -f status=exited)

@@ -1,0 +1,44 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.gravel.grpc;
+
+message PostId{
+  string postId = 1;
+}
+
+message AuthorId{
+  string authorId = 1;
+}
+
+message Get{}
+
+message Post {
+  string postId = 1;
+  string heading = 2;
+  string description = 3;
+  string content = 4;
+  string authorId = 5;
+  string bannerUrl = 6;
+}
+
+message Posts {
+  repeated Post posts= 1;
+}
+
+message Author{
+  string authorId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string imageUrl = 4;
+}
+
+message Authors{
+  repeated Author authors= 1;
+}
+
+service PostService {
+  rpc getPost(PostId) returns (Post);
+  rpc getAllPosts(Get) returns (Posts);
+  rpc getAuthors(Get) returns (Authors);
+  rpc getAuthorPosts(AuthorId) returns (Posts);
+}
