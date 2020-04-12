@@ -5,9 +5,23 @@ protoc -I="." PostService.proto --js_out=import_style=commonjs,binary:.
 protoc -I="." PostService.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
 
 //Run from the root of the folder
+cd /d/Projects/ZemosoLabs/grpc-blog/
 docker build -t helloworld/envoy -f ./src/envoy.Dockerfile ./src
-docker run -d -p 8080:8080 -p 9901:9901 helloworld/envoy  
+docker run -d -p 8080:8080 -p 9901:9901 -p 6565:6565 helloworld/envoy
 
 
 // remove containers not active
 docker rm $(docker ps -a -q -f status=exited)
+
+
+docker system prune
+docker system prune -a
+
+//stop all containers and remove
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+//server
+cd /d/Projects/ZemosoLabs/api-service/
+docker build -t grpcserver:dock -f ./src/main/grpc.Dockerfile .
+docker run -d -p 6565:6565 -t grpcserver:dock

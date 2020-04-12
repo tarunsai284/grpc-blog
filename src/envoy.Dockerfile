@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM envoyproxy/envoy:latest
+# FROM envoyproxy/envoy:latest
+
+FROM envoyproxy/envoy:v1.12.2
 
 COPY ./envoy.yaml /etc/envoy/envoy.yaml
 
