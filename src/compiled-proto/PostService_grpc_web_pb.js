@@ -388,5 +388,325 @@ proto.org.gravel.grpc.PostServicePromiseClient.prototype.getAuthorPosts =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.org.gravel.grpc.PostPayload,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodDescriptor_PostService_createPost = new grpc.web.MethodDescriptor(
+  '/org.gravel.grpc.PostService/createPost',
+  grpc.web.MethodType.UNARY,
+  proto.org.gravel.grpc.PostPayload,
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.PostPayload} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.org.gravel.grpc.PostPayload,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodInfo_PostService_createPost = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.PostPayload} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.org.gravel.grpc.PostPayload} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.org.gravel.grpc.Get)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.org.gravel.grpc.Get>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.org.gravel.grpc.PostServiceClient.prototype.createPost =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/createPost',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_createPost,
+      callback);
+};
+
+
+/**
+ * @param {!proto.org.gravel.grpc.PostPayload} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.org.gravel.grpc.Get>}
+ *     A native promise that resolves to the response
+ */
+proto.org.gravel.grpc.PostServicePromiseClient.prototype.createPost =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/createPost',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_createPost);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.org.gravel.grpc.Author,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodDescriptor_PostService_createAuthor = new grpc.web.MethodDescriptor(
+  '/org.gravel.grpc.PostService/createAuthor',
+  grpc.web.MethodType.UNARY,
+  proto.org.gravel.grpc.Author,
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.Author} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.org.gravel.grpc.Author,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodInfo_PostService_createAuthor = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.Author} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.org.gravel.grpc.Author} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.org.gravel.grpc.Get)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.org.gravel.grpc.Get>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.org.gravel.grpc.PostServiceClient.prototype.createAuthor =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/createAuthor',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_createAuthor,
+      callback);
+};
+
+
+/**
+ * @param {!proto.org.gravel.grpc.Author} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.org.gravel.grpc.Get>}
+ *     A native promise that resolves to the response
+ */
+proto.org.gravel.grpc.PostServicePromiseClient.prototype.createAuthor =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/createAuthor',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_createAuthor);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.org.gravel.grpc.AuthorId,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodDescriptor_PostService_deleteAuthor = new grpc.web.MethodDescriptor(
+  '/org.gravel.grpc.PostService/deleteAuthor',
+  grpc.web.MethodType.UNARY,
+  proto.org.gravel.grpc.AuthorId,
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.AuthorId} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.org.gravel.grpc.AuthorId,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodInfo_PostService_deleteAuthor = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.AuthorId} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.org.gravel.grpc.AuthorId} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.org.gravel.grpc.Get)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.org.gravel.grpc.Get>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.org.gravel.grpc.PostServiceClient.prototype.deleteAuthor =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/deleteAuthor',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_deleteAuthor,
+      callback);
+};
+
+
+/**
+ * @param {!proto.org.gravel.grpc.AuthorId} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.org.gravel.grpc.Get>}
+ *     A native promise that resolves to the response
+ */
+proto.org.gravel.grpc.PostServicePromiseClient.prototype.deleteAuthor =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/deleteAuthor',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_deleteAuthor);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.org.gravel.grpc.PostId,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodDescriptor_PostService_deletePost = new grpc.web.MethodDescriptor(
+  '/org.gravel.grpc.PostService/deletePost',
+  grpc.web.MethodType.UNARY,
+  proto.org.gravel.grpc.PostId,
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.PostId} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.org.gravel.grpc.PostId,
+ *   !proto.org.gravel.grpc.Get>}
+ */
+const methodInfo_PostService_deletePost = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.org.gravel.grpc.Get,
+  /**
+   * @param {!proto.org.gravel.grpc.PostId} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.gravel.grpc.Get.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.org.gravel.grpc.PostId} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.org.gravel.grpc.Get)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.org.gravel.grpc.Get>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.org.gravel.grpc.PostServiceClient.prototype.deletePost =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/deletePost',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_deletePost,
+      callback);
+};
+
+
+/**
+ * @param {!proto.org.gravel.grpc.PostId} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.org.gravel.grpc.Get>}
+ *     A native promise that resolves to the response
+ */
+proto.org.gravel.grpc.PostServicePromiseClient.prototype.deletePost =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/org.gravel.grpc.PostService/deletePost',
+      request,
+      metadata || {},
+      methodDescriptor_PostService_deletePost);
+};
+
+
 module.exports = proto.org.gravel.grpc;
 

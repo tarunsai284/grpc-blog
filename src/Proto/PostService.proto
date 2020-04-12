@@ -19,6 +19,17 @@ message Post {
   string content = 4;
   string authorId = 5;
   string bannerUrl = 6;
+  string authorName = 7;
+  string authorImageUrl = 8;
+}
+
+message PostPayload {
+  string postId = 1;
+  string heading = 2;
+  string description = 3;
+  string content = 4;
+  string authorId = 5;
+  string bannerUrl = 6;
 }
 
 message Posts {
@@ -41,4 +52,8 @@ service PostService {
   rpc getAllPosts(Get) returns (Posts);
   rpc getAuthors(Get) returns (Authors);
   rpc getAuthorPosts(AuthorId) returns (Posts);
+  rpc createPost(PostPayload) returns(Get);
+  rpc createAuthor(Author) returns(Get);
+  rpc deleteAuthor(AuthorId) returns(Get);
+  rpc deletePost(PostId) returns(Get);
 }

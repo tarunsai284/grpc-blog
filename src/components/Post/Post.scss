@@ -1,0 +1,71 @@
+.github-card {
+    border: none;
+}
+.avatar-url{
+    max-width: 100%;
+}
+
+.card-box{
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    &:last-child{
+        margin-bottom: 20px;
+    }
+}
+
+.card-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-description{
+    display: block;
+    display: -webkit-box;
+    max-width: 700px;
+    height: 50px;
+    /* margin: 0 auto; */
+    line-height: 1.2;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.icon-fork{
+    color: gray;
+    margin-right: 6px;
+    font-size: 19px;
+}
+
+.icon-stars{
+    color: #ffc850;
+    margin-right: 6px;
+    font-size: 19px;
+}
+ 
+.icon-eye{
+    color: #0677b3;
+    margin-right: 6px;
+    font-size: 19px;
+}
+
+.icon-exclamation{
+    color: #ff6243;
+    margin-right: 6px;
+    font-size: 17px;
+}
+
+
+.github-icon{
+    max-height: 30px;
+}
+
+.repo-link{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.desc-icons{
+    max-height:20px;
+}

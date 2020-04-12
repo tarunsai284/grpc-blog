@@ -7,7 +7,7 @@ protoc -I="." PostService.proto --grpc-web_out=import_style=commonjs,mode=grpcwe
 //Run from the root of the folder
 cd /d/Projects/ZemosoLabs/grpc-blog/
 docker build -t helloworld/envoy -f ./src/envoy.Dockerfile ./src
-docker run -d -p 8080:8080 -p 9901:9901 -p 6565:6565 helloworld/envoy
+docker run -d -p 8080:8080 -p 9901:9901 helloworld/envoy
 
 
 // remove containers not active
