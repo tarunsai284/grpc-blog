@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import styles from './Home.module.scss';
 import { Post } from '../Post/Post';
+import { Blog } from '../Blog/Blog';
 
 const { Get } = require('../../compiled-proto/PostService_pb');
 const { PostServiceClient } = require('../../compiled-proto/PostService_grpc_web_pb');
@@ -14,9 +13,11 @@ export class Home extends Component {
         super(props)
         console.log("Home Constructor");
         this.state = {
-            "posts": []
+            "posts": [],
+            "displayPost" : false,
+            "index": 0
         }
-        this.handleOnClick = this.handleOnClick.bind(this);
+        this.showPost = this.showPost.bind(this);
     }
 
     componentDidMount() {
@@ -25,23 +26,38 @@ export class Home extends Component {
             this.posts = response.getPostsList();
             this.setState((prevState)=> {
                 return{
-                    "posts": this.posts
+                    "posts": this.posts,
+                    "displayPost" : false,
+                    "index" : 0
                 }
             })
         });        
     }
 
-    handleOnClick(index) {
-        console.log("handleOnClick");
+    showPost(index) {
+        this.setState((prevState) => {
+            return {
+                "posts": prevState.posts,
+                "displayPost": true,
+                "index" : index
+            }
+        });
+        this.props.handleBlog(this.state.posts[index], index);
     }
 
     render() {
-        const PostItems = this.state.posts.map((ele, index) => <Post index={index} post={ele} 
-                            handleOnClick={this.handleOnClick} />);
+        const PostItems = this.state.posts.map((ele, index) => {
+                            return <Post key={ele.getPostid()} index={index} post={ele} showPost={this.showPost} />
+                        });
+
+        const DisplayItems = () =>{
+            if(!this.state.displayPost) return PostItems;
+            else if(this.state.posts) return <Blog index={this.state.index} post={this.state.posts[this.state.index]}/>
+        }                    
 
         return (
             <div>
-                {PostItems}
+                {DisplayItems()}
             </div>
         );
     }

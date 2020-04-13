@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.scss';
 import { Home } from './components/Home/Home'
 import { AuthorsList } from './components/AuthorsList/AuthorsList'
+import { Post } from './components/Post/Post';
+import { Blog } from './components/Blog/Blog';
+import { CreatePost } from './components/CreatePost/CreatePost';
 
 const { Get } = require('./compiled-proto/PostService_pb');
 const { PostServiceClient } = require('./compiled-proto/PostService_grpc_web_pb');
@@ -17,12 +20,20 @@ class App extends Component {
         this.state = {
             "home": true,
             "authors": false,
+            "blog": false,
+            "post" : false,
+            "create" : false,
+            "index" : false
         }
 
         this.navHeader = {
             "home" : "home",
-            "authors" : "authors"
+            "authors" : "authors",
+            "create" : "create"
         }
+
+        this.handleNavClick = this.handleNavClick.bind(this);
+        this.handleBlog = this.handleBlog.bind(this);
     }
 
     handleNavClick(ele){
@@ -35,10 +46,23 @@ class App extends Component {
         })
     }
 
+    handleBlog(postItem, item){
+        this.setState((prevState)=> {
+            var prevObj = JSON.parse(JSON.stringify(prevState))
+            Object.keys(prevObj).forEach(key => prevObj[key] = false)
+            prevObj.post = postItem;
+            prevObj.item = item;
+            prevObj.blog = true;
+            return prevObj;
+        })
+    }
+
     render() {
         const navTemplate = () =>{
-            if(this.state.home) return <Home />;
-            else if(this.state.authors) return <AuthorsList />;
+            if(this.state.home) return <Home  handleBlog={this.handleBlog} />;
+            else if(this.state.authors) return <AuthorsList  handleNavClick={this.handleNavClick} />;
+            else if(this.state.blog) return <Blog index={this.state.index} post={this.state.post}/>
+            else if(this.state.create) return <CreatePost />
         }
 
         return (
@@ -51,6 +75,9 @@ class App extends Component {
                             </li>
                             <li className="nav-item"  onClick={()=>this.handleNavClick(this.navHeader.authors)}>
                                 <a className={"nav-link " + (this.state.authors ? 'nav-active-bold': 'text-white ')} href="javascript:void(0)">Authors</a>
+                            </li>
+                            <li className="nav-item"  onClick={()=>this.handleNavClick(this.navHeader.create)}>
+                                <a className={"nav-link " + (this.state.create ? 'nav-active-bold': 'text-white ')} href="javascript:void(0)">Create Post</a>
                             </li>
                         </ul>
                     </div>

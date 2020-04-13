@@ -14,7 +14,8 @@ export class AuthorsList extends Component {
         super(props)
         console.log("Home Constructor");
         this.state = {
-            "authors": []
+            "authors": [],
+            "displayPost" : false
         }
     }
 
@@ -24,14 +25,20 @@ export class AuthorsList extends Component {
             this.authors = response.getAuthorsList();
             this.setState((prevState) => {
                 return {
-                    "authors": this.authors
+                    "authors": this.authors,
+                    "displayPost": false
                 }
             })
         });
     }
 
     handleAuthorC(index) {
-        console.log("handleAuthorC");
+        this.setState((prevState) => {
+            return {
+                "authors": prevState.authors,
+                "displayPost": true
+            }
+        })
     }
 
     render() {
